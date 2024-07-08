@@ -1,15 +1,20 @@
-CREATE DATABASE IF NOT EXISTS empleados;
-USE empleados;
+CREATE DATABASE IF NOT EXISTS democraticNews;
+USE democraticNews;
 
-CREATE TABLE empleados (
+CREATE TABLE news (
     id INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(255),
-    correo VARCHAR(255),
-    foto VARCHAR(5000),
+    name VARCHAR(50),
+    lastName VARCHAR(50),
+    email VARCHAR(100),
+    gender VARCHAR(1),
+    title VARCHAR(100),
+    subtitle VARCHAR(100),
+    type VARCHAR(20),
+    imageUrl VARCHAR(255),
+    body TEXT,
+    upVotes INT,
+    downVotes INT,
     PRIMARY KEY(id)
 )
 
-drop table empleado;
-
-INSERT into empleados (nombre,correo,foto) VALUES('Mario','mario@email.com','fotodemario.jpg');
-select * from empleados;
+drop table news;
