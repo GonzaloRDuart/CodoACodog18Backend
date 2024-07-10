@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemocraticNews</title>
+    <link rel="stylesheet" href="../css/main_page_styles.css">
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img id="logo-img" src="../assets/logo.png" alt="DemocraticNews Logo">
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="top.html">Top</a>
+                    <select>
+                        <option value="daily">Diario</option>
+                        <option value="weekly">Semanal</option>
+                        <option value="monthly">Mensual</option>
+                    </select>
+                </li>
+                <li><a href="publish.html">Publique su noticia</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="top-container">
+            <div class="news-list">
+                <div id="news-img-1" class="news-item" onclick="loadNewsByNumber(0)">
+                    <h3 id="news-title-1">Titulo-1</h3>
+                </div>
+                <div id="news-img-2" class="news-item" onclick="loadNewsByNumber(1)">
+                    <h3 id="news-title-2">Titulo-2</h3>
+                </div>
+                <div id="news-img-3" class="news-item" onclick="loadNewsByNumber(2)">
+                    <h3 id="news-title-3">Titulo-3</h3>
+                </div>
+                <div id="news-img-4" class="news-item" onclick="loadNewsByNumber(3)">
+                    <h3 id="news-title-4">Titulo-4</h3>
+                </div>
+            </div>
+            <div class="news-detail">
+                <img id="main-image" class="main-image" alt="Noticia" src=".">
+                <div id="top-content">
+                    <h2 id="main-title" style="margin-top: 0;">Titulo Principal</h2>
+                    <h4 id="main-subtitle">Subtitulo Principal</h4>
+                    <p id="news-body"></p>
+                    <br>
+                    <div class="feedback">
+                        <h4 id="feedback-text">¿Consideras correcta esta noticia?</h4>
+                        <div>
+                            <div id="thumb-up" onclick="thumbsUp()"></div>
+                            <div id="thumb-down" onclick="thumbsDown()"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 DemocraticNews. Todos los derechos reservados.</p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
