@@ -1,20 +1,20 @@
 CREATE DATABASE IF NOT EXISTS democraticNews;
 USE democraticNews;
 
-CREATE TABLE news (
+CREATE TABLE noticias (
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50),
-    lastName VARCHAR(50),
-    email VARCHAR(100),
-    gender VARCHAR(1),
-    title VARCHAR(100),
-    subtitle VARCHAR(100),
-    type VARCHAR(20),
-    imageUrl VARCHAR(255),
-    body TEXT,
-    upVotes INT,
-    downVotes INT,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    correo VARCHAR(100),
+    titulo VARCHAR(100),
+    subtitulo VARCHAR(100),
+    imagen VARCHAR(100),
+    cuerpo VARCHAR(2000),
+    
     PRIMARY KEY(id)
-)
+);
 
-drop table news;
+INSERT INTO noticias (nombre, apellido, correo, titulo, subtitulo, imagen, cuerpo)
+VALUES ('Maria', 'Robledo', 'maria@example.com', 'Titulo1', 'subtitulo1', 'imagen1.png', 'cuerpo noticia');
+select * from news;
+drop table noticia;
