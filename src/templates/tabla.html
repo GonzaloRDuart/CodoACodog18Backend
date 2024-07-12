@@ -58,8 +58,8 @@
                         <td>{{noticia.correo}}</td>
                         <td>{{noticia.titulo}}</td>
                         <td>
-                            <a href="/modify/{{noticia.id}}">Editar</a>
-                            <a href="/delete/{{noticia.id}}">Borrar</a>
+                            <a href="/modifyForm/{{noticia.id}}">Editar</a>
+                            <a href="/delete/{{noticia.id}}" onclick="showAlert(event)">Borrar</a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -71,6 +71,15 @@
 
     <footer></footer>
 
+    <script>
+        function showAlert(event) {
+            alert("Noticia eliminada");
+            // Aquí puedes agregar lógica adicional, como una confirmación antes de redirigir
+            // if (confirm("¿Estás seguro que deseas borrar esta noticia?")) {
+            //     window.location.href = event.target.href;
+            // }
+        }
+    </script>
     
 </body>
 

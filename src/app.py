@@ -37,29 +37,32 @@ try:
 except Exception as err:
     print("Error al crear la base de datos:", err)
 
-# Ahora conectarse normalmente con la base de datos especificada
-with app.app_context():
-    conn = mysql.connect()
-    cursor = conn.cursor()
+repetir=True
+if repetir:
+    # Ahora conectarse normalmente con la base de datos especificada
+    with app.app_context():
+        conn = mysql.connect()
+        cursor = conn.cursor()
 
-    # Usar la base de datos especificada
-    try:
-        cursor.execute("USE democraticnews;")
-    except Exception as err:
-        print("Error al usar la base de datos:", err)
+        # Usar la base de datos especificada
+        try:
+            cursor.execute("USE democraticnews;")
+        except Exception as err:
+            print("Error al usar la base de datos:", err)
 
-    # Leer el contenido del archivo y guardarlo en una variable
-    with open(r'src\querys.sql', 'r') as archivo:
-        creationQuery = archivo.read()
+        # Leer el contenido del archivo y guardarlo en una variable
+        with open(r'src\querys.sql', 'r') as archivo:
+            creationQuery = archivo.read()
 
-    # Ejecutar cada consulta en el archivo .sql
-    for query in creationQuery.split(';'):
-        if query.strip():  # Evita ejecutar consultas vacías
-            cursor.execute(query.strip() + ';')
+        # Ejecutar cada consulta en el archivo .sql
+        for query in creationQuery.split(';'):
+            if query.strip():  # Evita ejecutar consultas vacías
+                cursor.execute(query.strip() + ';')
 
-    conn.commit()
-    cursor.close()
-    conn.close()
+        conn.commit()
+        cursor.close()
+        conn.close()
+        repetir =False
 
 @app.route('/fotodeusuario/<path:nombreFoto>')
 def uploads (nombreFoto):
@@ -77,6 +80,17 @@ def about():
 @app.route('/top')
 def top():
     return render_template('top.html')
+
+@app.route('/modifyForm/<int:id>')
+def modifyForm(id):
+    conn = mysql.connect()
+    cursor = conn.cursor(cursor=DictCursor)
+    cursor.execute("SELECT * FROM noticias WHERE id = %s;", id)
+    noticia = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return render_template('edit.html', noticia=noticia[0])
+    
 
 @app.route('/delete/<int:id>')
 def delete_noticia(id):
@@ -140,6 +154,37 @@ def store():
 
     return redirect('/tabla')
 
+@app.route('/modify', methods=['POST'])
+def modify():
+    data = request.get_json()
+    _nombre=data.get('nombre')
+    _apellido=data.get('apellido')
+    _correo=data.get('email')
+    _gender=data.get('gender')
+    _titulo=data.get('titular')
+    _subtitulo=data.get('subtitulo')
+    _tipo=data.get('tipo')
+    _descripcion=data.get('descripcion')
+    _foto=data.get('imagen')
+    _id=data.get('id')
+
+    print(data)
+
+    sql="UPDATE noticias SET nombre = %s, apellido = %s, correo = %s, gender = %s, titulo = %s, subtitulo = %s, tipo = %s, imagen = %s, cuerpo = %s WHERE id = %s;"
+
+    print(_id)
+
+    datos=(_nombre, _apellido,_correo,_gender, _titulo,_subtitulo, _tipo, _foto, _descripcion, _id)
+    conn = mysql.connect()  # Llama a la función connect()
+    cursor = conn.cursor()  # Obtiene el cursor de la conexión
+    cursor.execute(sql,datos)
+
+    conn.commit()
+
+    print("se modifico la noticia")
+
+
+    return redirect('/tabla')
 
 if __name__ == '__main__':
     app.run(debug=True)
