@@ -1,12 +1,111 @@
-<form method="POST" action ="/store"enctype="multipart/form-data">
-    <label for="txtNombre">Nombre:</label>
-    <input type="text" name="txtNombre" id="txtNombre">
-    <br>
-    <label for="txtCorreo">Correo:</label>
-    <input type="text" name="txtCorreo" id="txtCorreo">
-    <br>
-    <label for="txtFoto">Foto de perfil:</label>
-    <input type="file" name="txtFoto" id="txtFoto">
-    <br>
-    <input type="Submit" value = "Agregar nuevo empleado">
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Noticia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/publish_styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <img id="logo-img" src="{{ url_for('static', filename='assets/logo.png') }}" alt="DemocraticNews Logo">
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ url_for('top') }}" onClick="updateTopNews();">Top</a>
+                    <select>
+                        <option value="daily">Diario</option>
+                        <option value="weekly">Semanal</option>
+                        <option value="monthly">Mensual</option>
+                    </select>
+                </li>
+                <li><a href="{{ url_for('tabla') }}">Noticias</a></li>
+                <li><a href="{{ url_for('publish') }}">Publique su noticia</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+
+        <div id="news-form">
+            <form action="{{ url_for('store') }}" method="POST" enctype="multipart/form-data">
+                <h2 class="form-title">Ingrese la noticia</h2>
+                <section id="form-container">
+                    <h3 class="form-title">Datos Personales</h3>
+                    <div class="form-group">
+                        <label class="form-label" for="nombre">Nombre:</label>
+                        <input class="form-input" type="text" id="nombre" name="nombre" required maxlength="50"
+                            placeholder="Ingrese su nombre">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label class="form-label" for="apellido">Apellido:</label>
+                        <input class="9form-input" type="text" id="apellido" name="apellido" required maxlength="50"
+                            placeholder="Ingrese su apellido">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Correo electrónico:</label>
+                        <input class="form-input" type="email" id="email" name="email" required
+                            placeholder="nombre@example.com">
+                    </div>
+                    <br>
+                    
+                </section>
+
+                <section>
+                    <h3 class="form-title">¿Cuál es su noticia?</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="titular">Títular:</label>
+                            <input class="form-input" type="text" id="titular" name="titular" required maxlength="100"
+                                placeholder="Ingrese el titulo">
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label class="form-label" for="subtitulo">Subtítulo:</label>
+                            <input class="form-input" type="text" id="subtitulo" name="subtitulo" maxlength="150"
+                                placeholder="Ingrese el subtitulo">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label" for="imagen">Imagen:</label>
+                            <input class="form-input" type="file" id="imagen" name="imagen" accept="image/*">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label" for="descripcion">Descripción de la Noticia:</label>
+                            <textarea class="form-input" id="descripcion" name="descripcion" cols="100" rows="15"
+                                maxlength="1500" required></textarea>
+
+                        </div>
+
+                </section>
+
+
+                <div class="buttons">
+                    <button type="reset" class="reset-btn">Limpiar formulario</button>
+                    <input type="Submit" value = "Agregar noticia">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DemocraticNews. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/publish.js"></script>
+</body>
+
+</html>
