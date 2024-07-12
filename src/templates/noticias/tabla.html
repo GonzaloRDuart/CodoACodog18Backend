@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemocraticNews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_page_styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <img id="logo-img" src="{{ url_for('static', filename='assets/logo.png') }}" alt="DemocraticNews Logo">
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ url_for('top') }}" onClick="updateTopNews();">Top</a>
+                    <select>
+                        <option value="daily">Diario</option>
+                        <option value="weekly">Semanal</option>
+                        <option value="monthly">Mensual</option>
+                    </select>
+                </li>
+                <li><a href="{{ url_for('tabla') }}">Noticia</a></li>
+                <li><a href="{{ url_for('publish') }}">Publique su noticia</a></li>
+                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+
+        <h1>Noticias</h1>
+        <div>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>correo</th>
+                    <th>Título</th>
+                    <th>Acciones</th>
+                </tr>
+                <tbody>
+                    {% for noticia in noticias %}
+
+                    <tr>
+                        <td>{{ noticia[0] }}</td>
+                        <td><img src="/src/uploads/{{ noticia[9] }}" alt="Foto" width="50" height="50"></td>
+                        <td>{{noticia[1]}}</td>
+                        <td>{{noticia[2]}}</td>
+                        <td>{{noticia[3]}}</td>
+                        <td>{{noticia[5]}}</td>
+                        <td>
+                            <a href="/modify/{{noticia[0]}}">Editar</a>
+                            <a href="/delete/{{noticia[0]}}">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    
+</body>
+
+</html>

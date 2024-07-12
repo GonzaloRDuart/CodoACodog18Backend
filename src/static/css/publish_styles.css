@@ -1,0 +1,153 @@
+/*
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+*/
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/*
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e6e6e6;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+*/
+
+form h2 {
+    margin-top: 0;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.gender label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh 0 2vh 0;
+}
+
+.reset-btn {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #a6f3a6;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#news-form {
+    max-height: 73vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+#news-form > * {
+    grid-column: 2 / span 2;
+}
+
+.form-group {
+    grid-column: 2 / span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-title {
+    grid-column: 2 / span 2;
+    text-align: center;
+    margin: 2vh 0 2vh 0;
+}
+
+.form-label {
+    grid-column: 1;
+}
+
+.form-input {
+    grid-column: 2;
+}
+
+.gender-radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-label {
+    display: flex;
+}
+
+.radio-input {
+    display: flex;
+}
+
+.radio-input {
+    margin-top: -3vh;
+}
+
+button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#descripcion {
+    height: 20vh;
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.radio-error {
+    color: red;
+    font-weight: bold;
+}
+
+.radio-container-error {
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+}
