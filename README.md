@@ -1,4 +1,4 @@
-# SISTEMA EMPLEADOS
+# SISTEMA DemocraticsNEWS
 ## REQUERIMIENTOS
 blinker==1.8.2
 cffi==1.16.0
