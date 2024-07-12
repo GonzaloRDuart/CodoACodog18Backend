@@ -1,5 +1,5 @@
 var news1 = {
-    image: '../assets/daily_top/news1.jpg',
+    image: '../img/assets/daily_top/news1.jpg',
     title: 'Jujuy, un destino ideal',
     subtitle: 'En esta fecha, Jujuy puede ser un excelente destino para vacacionar',
     body: `Jujuy, una provincia situada en el noroeste de Argentina, se presenta como un destino inigualable para quienes buscan una mezcla perfecta de naturaleza, cultura y aventura. Con su impresionante diversidad geográfica que abarca desde la aridez de la Puna hasta la exuberancia de las yungas, Jujuy ofrece paisajes que parecen sacados de un sueño.
@@ -17,7 +17,7 @@ var news1 = {
 };
 
 var news2 = {
-    image: '../assets/daily_top/news2.jpg',
+    image: '../img/assets/daily_top/news2.jpg',
     title: 'Sube el dólar',
     subtitle: 'Una vez más, la subida del dólar genera un gran desorden económico',
     body: `Una vez más, la subida del dólar ha provocado un considerable desorden económico en varios sectores. El aumento del valor de la divisa norteamericana frente al peso ha generado incertidumbre y preocupación entre los ciudadanos y los empresarios, quienes ven cómo sus costos se incrementan y sus márgenes de ganancia se reducen.
@@ -35,7 +35,7 @@ var news2 = {
 };
 
 var news3 = {
-    image: '../assets/daily_top/news3.jpg',
+    image: '../img/assets/daily_top/news3.jpg',
     title: '¿Se viene la nieve?',
     subtitle: 'El cambio de clima podría traer una sorpresa inesperada',
     body: `El cambio de clima podría traer una sorpresa inesperada este año: la posibilidad de una nevada en regiones donde es poco común. Los meteorólogos han estado observando un patrón inusual en las temperaturas y la formación de nubes, lo que sugiere que podríamos estar a punto de experimentar un fenómeno meteorológico raro.
@@ -53,7 +53,7 @@ var news3 = {
 };
 
 var news4 = {
-    image: '../assets/daily_top/news4.jpg',
+    image: '../img/assets/daily_top/news4.jpg',
     title: 'Innovación en Energía Solar',
     subtitle: 'Nuevas tecnologías prometen revolucionar el sector energético',
     body: `El sector energético está a punto de experimentar una revolución gracias a las innovaciones en tecnología solar. Investigadores de todo el mundo están desarrollando paneles solares de última generación que no solo son más eficientes, sino también más asequibles.
@@ -72,7 +72,7 @@ var news4 = {
 var dailyNews = [news1, news2, news3, news4];
 
 var news5 = {
-    image: '../assets/weekly_top/news5.jpg',
+    image: '../img/assets/weekly_top/news5.jpg',
     title: 'Avances en la Medicina Genómica',
     subtitle: 'Nuevos descubrimientos en la medicina personalizada',
     body: `La medicina genómica está revolucionando el campo de la salud al permitir tratamientos personalizados basados en el perfil genético de cada individuo. Recientemente, investigadores han identificado biomarcadores específicos que pueden predecir la respuesta a ciertos medicamentos, mejorando significativamente la eficacia de los tratamientos y reduciendo los efectos secundarios.
@@ -86,7 +86,7 @@ var news5 = {
 };
 
 var news6 = {
-    image: '../assets/weekly_top/news6.jpg',
+    image: '../img/assets/weekly_top/news6.jpg',
     title: 'Tecnología 5G',
     subtitle: 'La llegada del 5G y sus implicaciones',
     body: `La tecnología 5G está llegando rápidamente a las principales ciudades del mundo, prometiendo velocidades de conexión sin precedentes y una latencia extremadamente baja. Este avance tecnológico no solo mejorará la experiencia del usuario en dispositivos móviles, sino que también tendrá un impacto significativo en industrias como la automotriz, la salud y la manufactura.
@@ -100,7 +100,7 @@ var news6 = {
 };
 
 var news7 = {
-    image: '../assets/weekly_top/news7.jpg',
+    image: '../img/assets/weekly_top/news7.jpg',
     title: 'Protección del Amazonas',
     subtitle: 'Nuevas iniciativas para conservar la selva amazónica',
     body: `La selva amazónica, conocida como el pulmón del mundo, enfrenta amenazas constantes debido a la deforestación y el cambio climático. En respuesta, varias organizaciones y gobiernos han lanzado nuevas iniciativas para proteger esta vital región.
@@ -114,7 +114,7 @@ var news7 = {
 };
 
 var news8 = {
-    image: '../assets/weekly_top/news8.jpg',
+    image: '../img/assets/weekly_top/news8.jpg',
     title: 'Cambio en el Mundo Laboral',
     subtitle: 'El impacto del teletrabajo en la productividad y la calidad de vida',
     body: `El teletrabajo se ha convertido en una norma para muchas empresas desde la pandemia, transformando la forma en que entendemos el trabajo. Estudios recientes han demostrado que, en muchos casos, el teletrabajo puede aumentar la productividad y mejorar la calidad de vida de los empleados al reducir el tiempo de desplazamiento y ofrecer mayor flexibilidad.
@@ -130,7 +130,7 @@ var news8 = {
 var weeklyNews = [news5, news6, news7, news8];
 
 var news9 = {
-    image: '../assets/monthly_top/news9.jpg',
+    image: '../img/assets/monthly_top/news9.jpg',
     title: 'Conservación de los Océanos',
     subtitle: 'Esfuerzos globales para proteger la vida marina',
     body: `La conservación de los océanos es una prioridad urgente a nivel mundial. Con la amenaza de la contaminación plástica, la sobrepesca y el cambio climático, diversas organizaciones y gobiernos están implementando medidas para proteger la vida marina y los ecosistemas acuáticos.
@@ -144,7 +144,7 @@ var news9 = {
 };
 
 var news10 = {
-    image: '../assets/monthly_top/news10.jpg',
+    image: '../img/assets/monthly_top/news10.jpg',
     title: 'Avances en Inteligencia Artificial',
     subtitle: 'IA y su impacto en la vida cotidiana',
     body: `La inteligencia artificial (IA) está cambiando rápidamente nuestra vida cotidiana, desde asistentes virtuales y chatbots hasta diagnósticos médicos y vehículos autónomos. Los avances en IA están haciendo que las tareas diarias sean más eficientes y accesibles.
@@ -158,7 +158,7 @@ var news10 = {
 };
 
 var news11 = {
-    image: '../assets/monthly_top/news11.jpg',
+    image: '../img/assets/monthly_top/news11.jpg',
     title: 'Energías Renovables en Auge',
     subtitle: 'El crecimiento de las energías limpias a nivel global',
     body: `Las energías renovables están en auge en todo el mundo, impulsadas por la necesidad de combatir el cambio climático y reducir la dependencia de los combustibles fósiles. La energía solar y eólica están liderando esta revolución, con numerosos proyectos nuevos en desarrollo.
@@ -172,7 +172,7 @@ var news11 = {
 };
 
 var news12 = {
-    image: '../assets/monthly_top/news12.jpg',
+    image: '../img/assets/monthly_top/news12.jpg',
     title: 'Innovaciones en Transporte Público',
     subtitle: 'Nuevas soluciones para una movilidad sostenible',
     body: `Las innovaciones en el transporte público están transformando las ciudades y mejorando la calidad de vida de sus habitantes. Desde autobuses eléctricos y sistemas de bicicletas compartidas hasta trenes de alta velocidad, las nuevas tecnologías están haciendo que el transporte sea más eficiente y ecológico.

@@ -151,6 +151,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelector('.submit-btn').addEventListener('click', (event) => {
         event.preventDefault();
         if(validateForm()) {
+            console.log(formData);
+            fetch('http://127.0.0.1:5000/store', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
             alert('Formulario enviado correctamente');
             clearForm();
         }

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicar Noticia</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/publish_styles.css') }}">
+    <link rel="stylesheet" href="../../static/css/main_page_styles.css">
+    <link rel="stylesheet" href="../../static/css/publish_styles.css">
     <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -12,7 +13,7 @@
     <header>
         <div class="logo">
             <a href="{{ url_for('index') }}">
-                <img id="logo-img" src="{{ url_for('static', filename='assets/logo.png') }}" alt="DemocraticNews Logo">
+                <img id="logo-img" src="../static/img/assets/logo.png" alt="DemocraticNews Logo">
             </a>
         </div>
         
@@ -36,7 +37,7 @@
     <main>
 
         <div id="news-form">
-            <form action="{{ url_for('store') }}" method="POST" enctype="multipart/form-data">
+            <form >
                 <h2 class="form-title">Ingrese la noticia</h2>
                 <section id="form-container">
                     <h3 class="form-title">Datos Personales</h3>
@@ -48,7 +49,7 @@
                     <br>
                     <div class="form-group">
                         <label class="form-label" for="apellido">Apellido:</label>
-                        <input class="9form-input" type="text" id="apellido" name="apellido" required maxlength="50"
+                        <input class="form-input" type="text" id="apellido" name="apellido" required maxlength="50"
                             placeholder="Ingrese su apellido">
                     </div>
                     <br>
@@ -58,7 +59,17 @@
                             placeholder="nombre@example.com">
                     </div>
                     <br>
-                    
+                    <div class="form-group">
+                        <label class="form-label">Género: </label>
+                        <div class="form-input" id="gender-radio">
+                            <label class="radio-label">Masculino</label><input class="radio-input" type="radio"
+                                name="gender" value="masculino" required>
+                            <label class="radio-label">Femenino</label><input class="radio-input" type="radio"
+                                name="gender" value="femenino" required>
+                            <label class="radio-label">Otro</label><input class="radio-input" type="radio" name="gender"
+                                value="otro" required>
+                        </div>
+                    </div>
                 </section>
 
                 <section>
@@ -78,8 +89,24 @@
                         </div>
                         <br>
                         <div class="form-group">
+                            <label class="form-label" for="tipo">Tipo: </label>
+                            <select class="form-input" id="tipo" name="tipo" required>
+                                <option value="" disabled selected>Seleccione</option>
+                                <option value="noticia">Noticia</option>
+                                <option value="opinion">Opinión</option>
+                                <option value="reporte">Reporte</option>
+                                <option value="politica">Politica</option>
+                                <option value="policial">Policial</option>
+                                <option value="espectaculo">Espectaculo</option>
+                                <option value="viaje">Viaje</option>
+                                <option value="fenomenoclimatico">Fenómeno climático</option>
+                            </select>
+                            
+                        </div>
+                        <br>
+                        <div class="form-group">
                             <label class="form-label" for="imagen">Imagen:</label>
-                            <input class="form-input" type="file" id="imagen" name="imagen" accept="image/*">
+                            <input class="form-input" type="text" id="imagen" name="imagen" accept="image/*">
                         </div>
                         <br>
                         <div class="form-group">
@@ -94,7 +121,8 @@
 
                 <div class="buttons">
                     <button type="reset" class="reset-btn">Limpiar formulario</button>
-                    <input type="Submit" value = "Agregar noticia">
+                    <input type="Submit" class="submit-btn" value = "Agregar nueva Noticia">
+                  <!-- <button type="submit" class="submit-btn">Enviar formulario</button>-->  
                 </div>
             </form>
         </div>
@@ -104,8 +132,8 @@
         <p>&copy; 2024 DemocraticNews. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/publish.js"></script>
+    <script src="../../static/js/main.js"></script>
+    <script src="../../static/js/publish.js"></script>
 </body>
 
 </html>
