@@ -38,38 +38,34 @@
 
         <div id="news-form">
             <div type="hidden" id="noticia-id" style="display: none;">{{ noticia.id }}</div>
+            <input hidden type="text" value={{noticia.id}} name="txtId" id="txtId">
+        
             <form >
                 <h2 class="form-title">Editar Noticia</h2>
                 <section id="form-container">
                     <h3 class="form-title">Datos Personales</h3>
                     <div class="form-group">
                         <label class="form-label" for="nombre">Nombre:</label>
-                        <input class="form-input" type="text" id="nombre" name="nombre" required maxlength="50"
-                            placeholder="Ingrese su nombre">
+                        <input class="form-input" type="text" id="nombre" name="nombre" required maxlength="50" value="{{noticia.nombre}}" placeholder="Ingrese su nombre">
                     </div>
                     <br>
                     <div class="form-group">
                         <label class="form-label" for="apellido">Apellido:</label>
-                        <input class="form-input" type="text" id="apellido" name="apellido" required maxlength="50"
-                            placeholder="Ingrese su apellido">
+                        <input class="form-input" type="text" id="apellido" name="apellido" required maxlength="50" value="{{noticia.apellido}}" placeholder="Ingrese su apellido">
                     </div>
                     <br>
                     <div class="form-group">
                         <label class="form-label" for="email">Correo electrónico:</label>
-                        <input class="form-input" type="email" id="email" name="email" required
-                            placeholder="nombre@example.com">
+                        <input class="form-input" type="email" id="email" name="email" required value="{{ noticia.correo }}" placeholder="nombre@example.com">
                     </div>
                     <br>
-                    <div class="form-group">
-                        <label class="form-label">Género: </label>
-                        <div class="form-input" id="gender-radio">
-                            <label class="radio-label">Masculino</label><input class="radio-input" type="radio"
-                                name="gender" value="masculino" required>
-                            <label class="radio-label">Femenino</label><input class="radio-input" type="radio"
-                                name="gender" value="femenino" required>
-                            <label class="radio-label">Otro</label><input class="radio-input" type="radio" name="gender"
-                                value="otro" required>
-                        </div>
+                    <div class="form-input" id="gender-radio">
+                        <label class="radio-label">Masculino</label><input class="radio-input" type="radio"
+                            name="gender" value="masculino" required {% if noticia.gender == 'masculino' %}checked{% endif %}>
+                        <label class="radio-label">Femenino</label><input class="radio-input" type="radio"
+                            name="gender" value="femenino" required {% if noticia.gender == 'femenino' %}checked{% endif %}>
+                        <label class="radio-label">Otro</label><input class="radio-input" type="radio" name="gender"
+                            value="otro" required {% if noticia.gender == 'otro' %}checked{% endif %}>
                     </div>
                 </section>
 
@@ -77,7 +73,7 @@
                     <h3 class="form-title">¿Cuál es su noticia?</h3>
                         <div class="form-group">
                             <label class="form-label" for="titular">Títular:</label>
-                            <input class="form-input" type="text" id="titular" name="titular" required maxlength="100"
+                            <input class="form-input" type="text" id="titular" name="titular" required maxlength="100"  value="{{noticia.titulo}}"
                                 placeholder="Ingrese el titulo">
                         </div>
 
@@ -85,36 +81,36 @@
 
                         <div class="form-group">
                             <label class="form-label" for="subtitulo">Subtítulo:</label>
-                            <input class="form-input" type="text" id="subtitulo" name="subtitulo" maxlength="150"
+                            <input class="form-input" type="text" id="subtitulo" name="subtitulo" maxlength="150" value="{{noticia.subtitulo}}"
                                 placeholder="Ingrese el subtitulo">
                         </div>
                         <br>
                         <div class="form-group">
                             <label class="form-label" for="tipo">Tipo: </label>
                             <select class="form-input" id="tipo" name="tipo" required>
-                                <option value="" disabled selected>Seleccione</option>
-                                <option value="noticia">Noticia</option>
-                                <option value="opinion">Opinión</option>
-                                <option value="reporte">Reporte</option>
-                                <option value="politica">Politica</option>
-                                <option value="policial">Policial</option>
-                                <option value="espectaculo">Espectaculo</option>
-                                <option value="viaje">Viaje</option>
-                                <option value="fenomenoclimatico">Fenómeno climático</option>
+                                <option value="" disabled {% if not noticia.tipo %}selected{% endif %}>Seleccione</option>
+                                <option value="noticia" {% if noticia.tipo == 'noticia' %}selected{% endif %}>Noticia</option>
+                                <option value="opinion" {% if noticia.tipo == 'opinion' %}selected{% endif %}>Opinión</option>
+                                <option value="reporte" {% if noticia.tipo == 'reporte' %}selected{% endif %}>Reporte</option>
+                                <option value="politica" {% if noticia.tipo == 'politica' %}selected{% endif %}>Politica</option>
+                                <option value="policial" {% if noticia.tipo == 'policial' %}selected{% endif %}>Policial</option>
+                                <option value="espectaculo" {% if noticia.tipo == 'espectaculo' %}selected{% endif %}>Espectaculo</option>
+                                <option value="viaje" {% if noticia.tipo == 'viaje' %}selected{% endif %}>Viaje</option>
+                                <option value="fenomenoclimatico" {% if noticia.tipo == 'fenomenoclimatico' %}selected{% endif %}>Fenómeno climático</option>
                             </select>
                             
                         </div>
                         <br>
                         <div class="form-group">
                             <label class="form-label" for="imagen">Imagen:</label>
-                            <input class="form-input" type="text" id="imagen" name="imagen" accept="image/*">
+                            <input class="form-input" type="text" id="imagen" name="imagen" value="{{ noticia.imagen }}" accept="image/*">
+                            <img src="{{ noticia.imagen }}" alt="Foto" width="150" height="150">
                         </div>
                         <br>
                         <div class="form-group">
                             <label class="form-label" for="descripcion">Descripción de la Noticia:</label>
                             <textarea class="form-input" id="descripcion" name="descripcion" cols="100" rows="15"
-                                maxlength="1500" required></textarea>
-
+                                maxlength="1500" required>{{ noticia.descripcion }}</textarea>
                         </div>
 
                 </section>
